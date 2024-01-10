@@ -1,2 +1,8 @@
 .vscode/
 .venv/
+esi/__pycache__/
+esi/sso/__pycache__/
+fuzzworks/__pycache__/
+image/__pycache__/
+sde/__pycache__/
+nevekit.egg-info/
