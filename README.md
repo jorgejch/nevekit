@@ -13,7 +13,8 @@ A new Eve Kit Python 3 library to work with the Eve Online's ESI Swagger API.
     * The ESI definition can be found at: https://esi.evetech.net/_latest/swagger.json.
 * ESI Market data is fetched synchronously or asynchronous batches.
 * The kit encapsulates the SDE data and provides a simple interface to access it.
-    * The SDE data is fetched from a PostgreSQL 16 database.
+    * The SDE data is fetched from a SQLite database.
+    * No ORM is used.
     * The SDE data ready to restore can be downloaded from: https://www.fuzzwork.co.uk/dump/.
 
 # Installation
@@ -95,4 +96,17 @@ esi = ESI(sso=sso)
 # Get the authenticated character's standings.
 # It uses the following ESI endpoint: /characters/{character_id}/standings/.
 standings = esi.get_character_standings()
+```
+
+## SDE
+```python
+from evekit.sde import SDE
+
+# Create an SDE instance.
+# By default it creates a SQLite database at ~/.nevekit/nevekit.db.
+# It uses the SDE data downloaded from https://www.fuzzwork.co.uk/dump/.
+sde = SDE()
+
+# Get the type with id 587.
+type_obj = sde.get_type(587)
 ```
