@@ -1,2 +1,2 @@
-setuptools
 pytest
+flake8
