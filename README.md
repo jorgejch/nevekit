@@ -1,3 +1,5 @@
+[![Python package](https://github.com/jorgejch/nevekit/actions/workflows/python-package.yml/badge.svg)](https://github.com/jorgejch/nevekit/actions/workflows/python-package.yml)
+
 # Description
 
 A new Eve Kit Python 3 library to work with the Eve Online's ESI Swagger API.
