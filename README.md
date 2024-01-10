@@ -1,4 +1,6 @@
-[![Python package](https://github.com/jorgejch/nevekit/actions/workflows/python-package.yml/badge.svg)](https://github.com/jorgejch/nevekit/actions/workflows/python-package.yml)
+[![Python package](https://github.com/jorgejch/nevekit/actions/workflows/python-test-package.yml/badge.svg)](https://github.com/jorgejch/nevekit/actions/workflows/python-test-package.yml)
+
+[![codecov](https://codecov.io/gh/jorgejch/nevekit/branch/main/graph/badge.svg)](https://codecov.io/gh/jorgejch/nevekit)
 
 # Description
 
