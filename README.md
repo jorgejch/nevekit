@@ -49,7 +49,7 @@ with open('portrait.png', 'wb') as f:
 
 ## SSO
 ```python
-from evekit.sso import SSO
+from evekit.esi.sso import SSO
 
 # Create an SSO instance.
 # By default it uses the following SSO base URL: https://login.eveonline.com/.
@@ -84,7 +84,7 @@ esi = ESI()
 ### Authenticated ESI
 ```python
 from evekit.esi import ESI
-from evekit.sso import SSO
+from evekit.esi.sso import SSO
 
 # Create an ESI instance with authentication.
 # By default it uses the following ESI base URL: https://esi.evetech.net/.
@@ -104,9 +104,21 @@ from evekit.sde import SDE
 
 # Create an SDE instance.
 # By default it creates a SQLite database at ~/.nevekit/nevekit.db.
-# It uses the SDE data downloaded from https://www.fuzzwork.co.uk/dump/.
 sde = SDE()
 
 # Get the type with id 587.
 type_obj = sde.get_type(587)
+```
+
+## Fuzzworks
+```python
+from evekit.fuzzworks import Fuzzworks
+
+# Create a Fuzzworks instance.
+# By default it uses the following Fuzzworks base URL: https://www.fuzzwork.co.uk/.
+fuzzworks = Fuzzworks()
+
+# Get the SQLite db dump of the Eve Online's SDE.
+# This uses the following Fuzzworks endpoint: /dump/sqlite-latest.sqlite.bz2.
+fuzzworks.get_sde_dump(db_type='sqlite')
 ```
