@@ -6,3 +6,4 @@ fuzzworks/__pycache__/
 image/__pycache__/
 sde/__pycache__/
 nevekit.egg-info/
+.conda/
