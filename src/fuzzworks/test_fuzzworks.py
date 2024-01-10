@@ -14,7 +14,7 @@ TEST_DB_TYPE = 'sqlite'
 def fuzzworks():
     return Fuzzworks()
 
-def test_init():
+def before_all():
     """
         Run once before all tests.
     """
