@@ -1,11 +1,11 @@
 import requests
 
-from .. import logger
+from src import logger
 
 DB_TYPE_TO_FUZZWORKS_ENDPOINT = {
-    'sqlite': '/dump/sqlite-latest.sqlite.bz2',
-    'postgres': '/dump/postgres-latest.dmp.bz2',
-    'mysql': '/dump/mysql-latest.dmp.bz2'
+    'sqlite': 'dump/sqlite-latest.sqlite.bz2',
+    'postgres': 'dump/postgres-latest.dmp.bz2',
+    'mysql': 'dump/mysql-latest.dmp.bz2'
 }
 
 class Fuzzworks:
@@ -23,7 +23,7 @@ class Fuzzworks:
         ## Doctest
         ### Fetch data from an endpoint
         >>> fuzzworks = Fuzzworks()
-        >>> fuzzworks.fetch_data('/dump/lpOffers.txt')
+        >>> fuzzworks.fetch_data('dump/lpOffers.txt')
         <Response [200]>
         """
         url = f"{self.BASE_URL}/{endpoint}"
