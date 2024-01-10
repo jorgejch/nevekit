@@ -10,8 +10,6 @@ def load_modules(package):
         if not is_pkg:
             yield importlib.import_module(f"{package.__name__}.{name}")
 
-import nevekit  # Import the nevekit package
-
 def run_doctests(package):
     """
     Run doctests in all modules of the given package.
@@ -20,4 +18,5 @@ def run_doctests(package):
         doctest.testmod(module)
 
 if __name__ == "__main__":
+    import nevekit  # Import the nevekit package
     run_doctests(nevekit)
