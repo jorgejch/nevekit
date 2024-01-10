@@ -62,9 +62,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        if [ -f requirements-test.txt ]; then pip install -r requirements-package.txt; fi
+        if [ -f requirements-package.txt ]; then pip install -r requirements-package.txt; fi
     - name: Build package
       run: |
-        python Setup.py sdist bdist_wheel
+        python -m build 
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
