@@ -45,7 +45,7 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./coverage.xml # path to coverage report file
-        fail_ci_if_error: true # optional: fail the build if coverage upload fails
+        fail_ci_if_error: false # optional: fail the build if coverage upload fails
   package:
     needs: test
     runs-on: ubuntu-latest
