@@ -1,8 +1,8 @@
 class SSO(object):
     """
-        EVE Online SSO.
+    EVE Online SSO.
 
-        https://docs.esi.evetech.net/docs/sso/
+    https://docs.esi.evetech.net/docs/sso/
     """
     BASE_URL = "https://login.eveonline.com"
 
@@ -19,6 +19,6 @@ class SSO(object):
 
     def get_character_id(self):
         """
-            Get the character ID of the authenticated user.
+        Get the character ID of the authenticated user.
         """
         return 0
