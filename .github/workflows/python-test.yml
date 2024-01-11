@@ -40,7 +40,7 @@ jobs:
           flake8 --max-line-length=120 --count --show-source --statistics --max-complexity=10 src
       - name: Test with pytest
         run: |
-          python -m pytest --cov=src --cov-report=xml
+          pytest --cov=src --cov-report=xml src/**/test_*.py
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3.1.4
         with:
