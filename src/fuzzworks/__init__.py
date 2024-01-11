@@ -12,9 +12,6 @@ DB_TYPE_TO_FUZZWORKS_ENDPOINT = {
 class Fuzzworks:
     BASE_URL = "https://www.fuzzwork.co.uk"
 
-    def __init__(self):
-        pass
-
     def fetch_data(self, endpoint):
         """
         Generic method to fetch data from a Fuzzworks endpoint.
