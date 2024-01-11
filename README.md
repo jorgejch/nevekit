@@ -1,15 +1,22 @@
 [![Python package](https://github.com/jorgejch/nevekit/actions/workflows/python-test-package.yml/badge.svg)](https://github.com/jorgejch/nevekit/actions/workflows/python-test-package.yml)
 
-[![codecov](https://codecov.io/gh/jorgejch/nevekit/branch/main/graph/badge.svg)](https://codecov.io/gh/jorgejch/nevekit)
+[![codecov](https://codecov.io/gh/jorgejch/nevekit/graph/badge.svg?token=8OFRYTH59M)](https://codecov.io/gh/jorgejch/nevekit)
 
 # Description
 
-A new Eve Kit Python 3 library to work with the Eve Online's ESI Swagger API.
+A new Eve Kit Python 3 library to work with CCP's ESI Swagger API, SDE, Image Server and Fuzzworks data.
+
+# Project Status
+
+The project is at it's inception phase. Great moment to throw in your 2c.
+
+## Contributing
+
+A great start is dropping a "hi!" in this new [Discussions](https://github.com/jorgejch/nevekit/discussions/2) thing.
 
 # Features
 
-* The kit offers a simple interface to access the Eve Online's image server.
-* The kit offers a simple interface to access the Eve Online's SSO.
+* The kit offers a simple interface to access the CCP's image server.
 * The kit offers a simple interface to access the Eve Online's ESI.
 * The kit offers a simple interface to access the Eve Online's dedicated service Fuzzworks' most useful data.
 * The kit is able to handle contracts.
@@ -23,17 +30,17 @@ A new Eve Kit Python 3 library to work with the Eve Online's ESI Swagger API.
 
 # Installation
 
-The kit can be installed from the repository's root directory using pip:
+The kit can be installed from Pypi using pip:
 
 ```bash
-pip install .
+pip install nevekit
 ```
 
 # Usage
 
 ## Image Server
 ```python
-from evekit.image import ImageServer
+from nevekit.image import ImageServer
 
 # Create an image server instance.
 # By default it uses the following image server base URL: https://images.evetech.net/.
@@ -53,7 +60,7 @@ with open('portrait.png', 'wb') as f:
 
 ## SSO
 ```python
-from evekit.esi.sso import SSO
+from nevekit.esi.sso import SSO
 
 # Create an SSO instance.
 # By default it uses the following SSO base URL: https://login.eveonline.com/.
@@ -77,8 +84,8 @@ character_id = sso.get_character_id()
 
 ### Public ESI
 ```python
-from evekit.esi import ESI
-from evekit.sso import SSO
+from nevekit.esi import ESI
+from nevekit.sso import SSO
 
 # Create an ESI instance w/o authentication.
 # By default it uses the following ESI base URL: https://esi.evetech.net/.
@@ -87,8 +94,8 @@ esi = ESI()
 
 ### Authenticated ESI
 ```python
-from evekit.esi import ESI
-from evekit.esi.sso import SSO
+from nevekit.esi import ESI
+from nevekit.esi.sso import SSO
 
 # Create an ESI instance with authentication.
 # By default it uses the following ESI base URL: https://esi.evetech.net/.
@@ -104,7 +111,7 @@ standings = esi.get_character_standings()
 
 ## SDE
 ```python
-from evekit.sde import SDE
+from nevekit.sde import SDE
 
 # Create an SDE instance.
 # By default it creates a SQLite database at ~/.nevekit/nevekit.db.
@@ -116,7 +123,7 @@ type_obj = sde.get_type(587)
 
 ## Fuzzworks
 ```python
-from evekit.fuzzworks import Fuzzworks
+from nevekit.fuzzworks import Fuzzworks
 
 # Create a Fuzzworks instance.
 # By default it uses the following Fuzzworks base URL: https://www.fuzzwork.co.uk/.
