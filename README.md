@@ -1,39 +1,41 @@
-[![tests](https://github.com/jorgejch/nevekit/actions/workflows/python-test.yml/badge.svg)](https://github.com/jorgejch/nevekit/actions/workflows/python-test.yml) [![codecov](https://codecov.io/gh/jorgejch/nevekit/graph/badge.svg?token=8OFRYTH59M)](https://codecov.io/gh/jorgejch/nevekit)
+# New Eve Kit
 
-# Description
+[![tests](https://github.com/jorgejch/nevekit/actions/workflows/python-test.yml/badge.svg)](https://github.com/jorgejch/nevekit/actions/workflows/python-test.yml) [![codecov](https://codecov.io/gh/jorgejch/nevekit/graph/badge.svg?token=8OFRYTH59M)](https://codecov.io/gh/jorgejch/nevekit) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/063df9d27de14dbbbe27fa984c57d77c)](https://app.codacy.com/gh/jorgejch/nevekit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+## Description
 
 A new Eve Kit Python 3 library to work with CCP's ESI Swagger API, SDE, Image Server and Fuzzworks data.
 
-# Project Status
+## Project Status
 
 The project is at it's inception phase. Great moment to throw in your 2cs.
 
 Also, for the most part, do something like this in your head.
 
-```
-$ sed -i 's/offers/will offer/g' README.md
-$ sed -i 's/can/would be/g' README.md
+```bash
+sed -i 's/offers/will offer/g' README.md
+sed -i 's/can/would be/g' README.md
 ```
 
-## Contributing
+### Contributing
 
 A great start is dropping a "hi!" in this new [Discussions](https://github.com/jorgejch/nevekit/discussions/2) thing.
 
-# Features
+## Features
 
 * The kit offers a simple interface to access the CCP's image server.
 * The kit offers a simple interface to access the Eve Online's ESI.
 * The kit offers a simple interface to access the Eve Online's dedicated service Fuzzworks' most useful data.
 * The kit is able to handle contracts.
 * Uses the Bravado library to handle the ESI.
-    * The ESI definition can be found at: https://esi.evetech.net/_latest/swagger.json.
+  * The ESI definition can be found at: <https://esi.evetech.net/_latest/swagger.json>.
 * ESI Market data is fetched synchronously or asynchronous batches.
 * The kit encapsulates the SDE data and provides a simple interface to access it.
-    * The SDE data is fetched from a SQLite database.
-    * No ORM is used.
-    * The SDE data ready to restore can be downloaded from: https://www.fuzzwork.co.uk/dump/.
+  * The SDE data is fetched from a SQLite database.
+  * No ORM is used.
+  * The SDE data ready to restore can be downloaded from: <https://www.fuzzwork.co.uk/dump/>.
 
-# Installation
+## Installation
 
 The kit can be installed from Pypi using pip:
 
@@ -41,9 +43,10 @@ The kit can be installed from Pypi using pip:
 pip install nevekit
 ```
 
-# Usage
+## Usage
 
-## Image Server
+### Image Server
+
 ```python
 from nevekit.image import ImageServer
 
@@ -63,7 +66,8 @@ with open('portrait.png', 'wb') as f:
     f.write(image_server.get_character_portrait(2114008190, 256))
 ```
 
-## SSO
+### SSO
+
 ```python
 from nevekit.esi.sso import SSO
 
@@ -85,9 +89,10 @@ access_token = sso.login('client_id', 'secret_key', 'callback_url')
 character_id = sso.get_character_id()
 ```
 
-## ESI
+### ESI
 
-### Public ESI
+#### Public ESI
+
 ```python
 from nevekit.esi import ESI
 from nevekit.sso import SSO
@@ -97,7 +102,8 @@ from nevekit.sso import SSO
 esi = ESI()
 ```
 
-### Authenticated ESI
+#### Authenticated ESI
+
 ```python
 from nevekit.esi import ESI
 from nevekit.esi.sso import SSO
@@ -114,7 +120,8 @@ esi = ESI(sso=sso)
 standings = esi.get_character_standings()
 ```
 
-## SDE
+### SDE
+
 ```python
 from nevekit.sde import SDE
 
@@ -126,7 +133,8 @@ sde = SDE()
 type_obj = sde.get_type(587)
 ```
 
-## Fuzzworks
+### Fuzzworks
+
 ```python
 from nevekit.fuzzworks import Fuzzworks
 
