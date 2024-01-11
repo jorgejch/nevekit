@@ -61,8 +61,3 @@ class Fuzzworks:
             logger.error(f"Failed to save Fuzzworks db to path: {db_path}.")
             raise e
 
-
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()

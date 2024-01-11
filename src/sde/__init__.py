@@ -38,16 +38,10 @@ class SDE:
         # Return the connection string to the SQLite DB.
         return f"sqlite:///{db_path}"
 
-    def setup_db(self):
+    def init(self):
         """
         Setup SQLite DB for SDE data.
         """
         # SDE Data is stored in a SQLite database in the ~/.nevekit folder.
         db_path = f"{get_nevekit_home()}/{SDE_DB_NAME}"
         self.db_conn_str = self._download_db(db_path)
-
-
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
