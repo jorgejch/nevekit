@@ -1,5 +1,5 @@
 class SSO(object):
-    BASE_URL = 'https://login.eveonline.com'
+    BASE_URL = "https://login.eveonline.com"
 
     def __init__(self, client_id, client_secret, callback_uri):
         self.client_id = client_id

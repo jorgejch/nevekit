@@ -3,13 +3,14 @@ import requests
 from src import logger
 
 DB_TYPE_TO_FUZZWORKS_ENDPOINT = {
-    'sqlite': 'dump/sqlite-latest.sqlite.bz2',
-    'postgres': 'dump/postgres-latest.dmp.bz2',
-    'mysql': 'dump/mysql-latest.dmp.bz2'
+    "sqlite": "dump/sqlite-latest.sqlite.bz2",
+    "postgres": "dump/postgres-latest.dmp.bz2",
+    "mysql": "dump/mysql-latest.dmp.bz2",
 }
 
+
 class Fuzzworks:
-    BASE_URL = 'https://www.fuzzwork.co.uk'
+    BASE_URL = "https://www.fuzzwork.co.uk"
 
     def __init__(self):
         pass
@@ -31,7 +32,7 @@ class Fuzzworks:
         response.raise_for_status()
         return response
 
-    def download_fuzzworks_sde_db(self, db_path, db_type = 'sqlite'):
+    def download_fuzzworks_sde_db(self, db_path, db_type="sqlite"):
         """
         Download a Fuzzworks SDE db and save it to the specified path.
 
@@ -54,12 +55,14 @@ class Fuzzworks:
 
         # Save the downloaded db to the specified path.
         try:
-            with open(db_path, 'wb') as db_file:
+            with open(db_path, "wb") as db_file:
                 db_file.write(response.content)
         except IOError as e:
             logger.error(f"Failed to save Fuzzworks db to path: {db_path}.")
             raise e
 
+
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
