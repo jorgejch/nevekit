@@ -12,7 +12,7 @@ DB_TYPE_TO_FUZZWORKS_ENDPOINT = {
 class Fuzzworks:
     BASE_URL = "https://www.fuzzwork.co.uk"
 
-    def fetch_data(self, endpoint):
+    def fetch_data(self, endpoint, timeout=10):
         """
         Generic method to fetch data from a Fuzzworks endpoint.
         :param endpoint: Specific endpoint to fetch data from.
@@ -25,7 +25,7 @@ class Fuzzworks:
         <Response [200]>
         """
         url = f"{self.BASE_URL}/{endpoint}"
-        response = requests.get(url)
+        response = requests.get(url, timeout=timeout)
         response.raise_for_status()
         return response
 
@@ -45,7 +45,7 @@ class Fuzzworks:
 
         # Fetch the data from the endpoint.
         try:
-            response = self.fetch_data(endpoint)
+            response = self.fetch_data(endpoint, timeout=120)
         except requests.exceptions.HTTPError as e:
             logger.error(f"Failed to fetch data from Fuzzworks endpoint: {endpoint}.")
             raise e
