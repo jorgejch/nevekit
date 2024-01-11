@@ -1,6 +1,5 @@
 # Tests the parent package shared utilities.
 
-from unittest.mock import patch, MagicMock, mock_open
 from src import get_nevekit_home, logger
 
 
