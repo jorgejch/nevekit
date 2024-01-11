@@ -1,8 +1,9 @@
 from setuptools import setup, find_packages
 
-# Read requirements.txt
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
+requirements = [
+    'bravado[fido]==11.0.3',
+    'bravado-core==6.1.1'
+]
 
 setup(
     name='nevekit',
