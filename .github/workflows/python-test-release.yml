@@ -9,10 +9,7 @@ name: Test and release
 on:
   push:
     tags:
-      - 'v*' # push events to matching v*, i.e. v1.0, v20.15.10
-  pull_request:
-    branches:
-      - 'production'
+      - 'v*'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,12 +17,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        python-version: ["3.11"]
+        python-version: ["3.12", "3.11"]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -35,20 +32,19 @@ jobs:
         if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
     - name: Lint with flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        # Run flake8 on all .py files in the src directory and subdirectories.
+        flake8 --max-line-length=120 --count --show-source --statistics --max-complexity=10 src
     - name: Test with pytest
       run: |
         # Run the unit test file in each package with coverage
         pytest --cov=src --cov-report=xml
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v3.1.4
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./coverage.xml # path to coverage report file
-        fail_ci_if_error: false # optional: fail the build if coverage upload fails
+        flags: unittests # group coverage reports
+        fail_ci_if_error: false # don't fail the build if coverage upload fails
   release:
     # skip this job if it is not a tagged commit like v*.
     # see https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#example-using-a-github-context
@@ -60,9 +56,9 @@ jobs:
       # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python 3.11
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: 3.11
     - name: Install dependencies
