@@ -1,11 +1,8 @@
 import os
 from fuzzworks import Fuzzworks
+from src import get_nevekit_home
 
 SDE_DB_NAME = "sde.db"
-
-
-def get_nevekit_home():
-    return os.path.expanduser("~/.nevekit")
 
 
 # Placeholder for SDE implementation

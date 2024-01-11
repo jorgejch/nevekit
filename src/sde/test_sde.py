@@ -1,5 +1,6 @@
 # Test file for the sde module.
 import subprocess
+from unittest.mock import patch
 import pytest
 from sde import SDE
 
@@ -24,5 +25,13 @@ def before_all():
     subprocess.check_call(["pip", "install", "-e", "."])
 
 
-def test_get_nevekit_home(sde):
-    assert sde.get_nevekit_home().endswith(".nevekit")
+def test_init_success(sde):
+    """
+    Test that the SDE object is initialized correctly.
+    """
+    # Patch the _download_db method.
+    with patch("sde.SDE._download_db") as mock_download_db:
+        mock_download_db.return_value = "sqlite:///sde.db"
+        # Initialize the SDE object.
+        sde.init()
+    assert sde.db_conn_str is not None

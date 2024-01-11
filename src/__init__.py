@@ -31,4 +31,8 @@ def init_logger():
     return logger
 
 
+def get_nevekit_home():
+    return os.path.expanduser("~/.nevekit")
+
+
 logger = init_logger()
