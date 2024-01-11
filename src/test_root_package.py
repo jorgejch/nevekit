@@ -19,6 +19,6 @@ def test_init_logger():
     assert logger.handlers[0].__class__.__name__ == "FileHandler"
     assert logger.handlers[1].__class__.__name__ == "StreamHandler"
     assert logger.name == "nevekit"
-    assert logger.propagate == True
-    assert logger.disabled == False
+    assert logger.propagate is True
+    assert logger.disabled is False
     assert logger.filters == []
