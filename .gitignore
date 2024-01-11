@@ -10,3 +10,5 @@ dist/
 build/
 *.egg-info/
 *.log
+package.json
+package-lock.json
