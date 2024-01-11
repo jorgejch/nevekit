@@ -21,4 +21,4 @@ class SSO(object):
         """
             Get the character ID of the authenticated user.
         """
-        pass
+        return 0
