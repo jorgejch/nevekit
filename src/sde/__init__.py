@@ -1,9 +1,11 @@
 import os
-
-get_nevekit_home = lambda: os.path.expanduser("~/.nevekit")
 from ..fuzzworks import download_fuzzworks_sde_db
 
 SDE_DB_NAME = "sde.db"
+
+
+def get_nevekit_home():
+    return os.path.expanduser("~/.nevekit")
 
 
 # Placeholder for SDE implementation
