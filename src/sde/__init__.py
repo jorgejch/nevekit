@@ -1,5 +1,5 @@
 import os
-from ..fuzzworks import Fuzzworks
+from fuzzworks import Fuzzworks
 
 SDE_DB_NAME = "sde.db"
 
