@@ -7,7 +7,11 @@ class SSO(object):
         self.callback_uri = callback_uri
 
     def login(self):
+        """
+        Login to EVE Online SSO.
+        """
         pass
+        
 
     def get_character_id(self):
         pass
