@@ -3,7 +3,7 @@ from esi.sso import SSO
 
 # Constants for testing
 CLIENT_ID = "client_id"
-CLIENT_SECRET = "****" # not a real secret
+CLIENT_SECRET = "****"  # not a real secret
 CALLBACK_URI = "callback_uri"
 
 
