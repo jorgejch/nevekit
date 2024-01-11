@@ -28,7 +28,7 @@ class ImageServer:
         True
         """
         url = f"{self.BASE_URL}/characters/{character_id}/portrait?size={size}"
-        response = requests.get(url)
+        response = requests.get(url, timeout=15)
         response.raise_for_status()
         return response.content
 

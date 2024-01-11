@@ -1,5 +1,4 @@
 # Test file for the sde module.
-import subprocess
 from unittest.mock import patch
 import pytest
 from sde import SDE
@@ -14,15 +13,6 @@ SDE_DB_NAME = "sde.db"
 @pytest.fixture
 def sde():
     return SDE()
-
-
-def before_all():
-    """
-    Run once before all tests.
-    """
-    # Install the library locally in editable mode.
-    # This allows us to import the library.
-    subprocess.check_call(["pip", "install", "-e", "."])
 
 
 def test_init_success(sde):

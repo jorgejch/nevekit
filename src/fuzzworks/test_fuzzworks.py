@@ -1,4 +1,3 @@
-import subprocess
 import pytest
 import requests
 from unittest.mock import patch, MagicMock, mock_open
