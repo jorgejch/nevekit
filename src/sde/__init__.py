@@ -1,5 +1,5 @@
 import os
-from ..fuzzworks import download_fuzzworks_sde_db
+from ..fuzzworks import Fuzzworks
 
 SDE_DB_NAME = "sde.db"
 
@@ -33,7 +33,8 @@ class SDE:
         """
         # Create the SQLite DB if it doesn't exist.
         if not os.path.exists(db_path):
-            download_fuzzworks_sde_db(db_path=db_path)
+            f = Fuzzworks()
+            f.download_fuzzworks_sde_db(db_path=db_path)
 
         # Return the connection string to the SQLite DB.
         return f"sqlite:///{db_path}"
