@@ -10,7 +10,7 @@ A new Eve Kit Python 3 library to work with CCP's ESI Swagger API, SDE, Image Se
 
 The project is at it's inception phase. Great moment to throw in your 2cs.
 
-Also, for the most part, do this in your head.
+Also, for the most part, do something like this in your head.
 
 ```
 $ sed -i 's/offers/will offer/g' README.md
