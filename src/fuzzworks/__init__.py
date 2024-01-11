@@ -21,7 +21,7 @@ class Fuzzworks:
         ## Doctest
         ### Fetch data from an endpoint
         >>> fuzzworks = Fuzzworks()
-        >>> fuzzworks.fetch_data('dump/lpOffers.txt')
+        >>> fuzzworks.fetch_data('dump/lpOffers.txt', timeout=120)
         <Response [200]>
         """
         url = f"{self.BASE_URL}/{endpoint}"

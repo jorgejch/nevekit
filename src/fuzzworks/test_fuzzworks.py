@@ -15,15 +15,6 @@ def fuzzworks():
     return Fuzzworks()
 
 
-def before_all():
-    """
-    Run once before all tests.
-    """
-    # Install the library locally in editable mode.
-    # This allows us to import the library.
-    subprocess.check_call(["pip", "install", "-e", "."])
-
-
 def test_fetch_data_success(fuzzworks):
     with patch("requests.get") as mock_get:
         mock_response = MagicMock()
@@ -31,9 +22,9 @@ def test_fetch_data_success(fuzzworks):
         mock_response.content = b"test content"
         mock_get.return_value = mock_response
 
-        response = fuzzworks.fetch_data(TEST_ENDPOINT)
+        response = fuzzworks.fetch_data(TEST_ENDPOINT, timeout=10)
         assert response.content == b"test content"
-        mock_get.assert_called_with(f"{Fuzzworks.BASE_URL}/{TEST_ENDPOINT}")
+        mock_get.assert_called_with(f"{Fuzzworks.BASE_URL}/{TEST_ENDPOINT}", timeout=10)
 
 
 def test_fetch_data_failure(fuzzworks):
