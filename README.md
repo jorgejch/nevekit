@@ -1,4 +1,4 @@
-[![Test](https://github.com/jorgejch/nevekit/actions/workflows/python-test.yml/badge.svg)](https://github.com/jorgejch/nevekit/actions/workflows/python-test.yml)
+[![tests](https://github.com/jorgejch/nevekit/actions/workflows/python-test.yml/badge.svg)](https://github.com/jorgejch/nevekit/actions/workflows/python-test.yml)
 
 [![codecov](https://codecov.io/gh/jorgejch/nevekit/graph/badge.svg?token=8OFRYTH59M)](https://codecov.io/gh/jorgejch/nevekit)
 

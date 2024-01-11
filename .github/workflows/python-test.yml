@@ -1,7 +1,7 @@
 # This worflow should test a commit a following a push to any branch.
 # It should also test a pull request.
 
-name: Test  # This workflow is triggered on pushes to the repository.
+name: tests  # This workflow is triggered on pushes to the repository.
 
 on:
   push:
