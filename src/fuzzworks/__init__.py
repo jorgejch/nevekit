@@ -60,4 +60,3 @@ class Fuzzworks:
         except IOError as e:
             logger.error(f"Failed to save Fuzzworks db to path: {db_path}.")
             raise e
-
