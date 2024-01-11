@@ -17,7 +17,7 @@ jobs:
   # It runs coverage and uploads the results to codecov.io.
 
   test:
-    name: Test
+    name: tests
     runs-on: ubuntu-latest
     environment: test
     strategy:
