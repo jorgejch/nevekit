@@ -1,6 +1,6 @@
 # Tests the parent package shared utilities.
 
-from src import get_nevekit_home, logger
+from nevekit import get_nevekit_home, logger, are_two_floats_equal
 
 
 def test_get_nevekit_home():
@@ -22,3 +22,10 @@ def test_init_logger():
     assert logger.propagate is True
     assert logger.disabled is False
     assert logger.filters == []
+
+
+def test_are_floats_equal_true():
+    """
+    Test that the are_floats_equal method returns True.
+    """
+    assert are_two_floats_equal(0.01, 0.01)

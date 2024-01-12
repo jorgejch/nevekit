@@ -1,7 +1,7 @@
 import pytest
 import requests
 from unittest.mock import patch, MagicMock, mock_open
-from fuzzworks import Fuzzworks
+from nevekit.fuzzworks import Fuzzworks
 
 # Constants for testing
 TEST_ENDPOINT = "dump/lpOffers.txt"
@@ -35,7 +35,7 @@ def test_fetch_data_failure(fuzzworks):
 
 
 def test_download_fuzzworks_sde_db_success(fuzzworks):
-    with patch("fuzzworks.Fuzzworks.fetch_data") as mock_fetch_data:
+    with patch("nevekit.fuzzworks.Fuzzworks.fetch_data") as mock_fetch_data:
         mock_response = MagicMock()
         mock_response.content = b"test db content"
         mock_fetch_data.return_value = mock_response
@@ -47,7 +47,7 @@ def test_download_fuzzworks_sde_db_success(fuzzworks):
 
 
 def test_download_fuzzworks_sde_db_failure(fuzzworks):
-    with patch("fuzzworks.Fuzzworks.fetch_data") as mock_fetch_data:
+    with patch("nevekit.fuzzworks.Fuzzworks.fetch_data") as mock_fetch_data:
         mock_fetch_data.side_effect = requests.exceptions.HTTPError("Error")
 
         with pytest.raises(requests.exceptions.HTTPError):

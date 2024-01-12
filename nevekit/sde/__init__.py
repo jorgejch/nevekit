@@ -1,6 +1,6 @@
 import os
-from fuzzworks import Fuzzworks
-from src import get_nevekit_home
+from nevekit.fuzzworks import Fuzzworks
+from nevekit import get_nevekit_home, logger
 
 SDE_DB_NAME = "sde.db"
 
@@ -39,7 +39,14 @@ class SDE:
     def init(self):
         """
         Setup SQLite DB for SDE data.
+        SDE Data is stored in a SQLite database in the ~/.nevekit folder.
         """
-        # SDE Data is stored in a SQLite database in the ~/.nevekit folder.
-        db_path = f"{get_nevekit_home()}/{SDE_DB_NAME}"
+        nevekit_home = get_nevekit_home()
+        logger.info(f"NeveKit home: {nevekit_home}")
+
+        # Create the ~/.nevekit folder if it doesn't exist.
+        if not os.path.exists(nevekit_home):
+            os.makedirs(nevekit_home)
+
+        db_path = f"{nevekit_home}/{SDE_DB_NAME}"
         self.db_conn_str = self._download_db(db_path)

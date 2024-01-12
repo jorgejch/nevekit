@@ -1,7 +1,7 @@
 # Test file for the sde module.
 from unittest.mock import patch
 import pytest
-from sde import SDE
+from nevekit.sde import SDE
 
 # Constants for testing
 SDE_DB_NAME = "sde.db"
@@ -20,7 +20,7 @@ def test_init_success(sde):
     Test that the SDE object is initialized correctly.
     """
     # Patch the _download_db method.
-    with patch("sde.SDE._download_db") as mock_download_db:
+    with patch("nevekit.sde.SDE._download_db") as mock_download_db:
         mock_download_db.return_value = "sqlite:///sde.db"
         # Initialize the SDE object.
         sde.init()
@@ -32,7 +32,7 @@ def test_init_failure(sde):
     Test that the SDE object is initialized correctly.
     """
     # Patch the _download_db method.
-    with patch("sde.SDE._download_db") as mock_download_db:
+    with patch("nevekit.sde.SDE._download_db") as mock_download_db:
         mock_download_db.side_effect = IOError("Error")
         # Initialize the SDE object.
         with pytest.raises(IOError):

@@ -1,8 +1,6 @@
-import sys
 import os
 import logging
-
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+import numpy as np
 
 
 def init_logger():
@@ -33,6 +31,13 @@ def init_logger():
 
 def get_nevekit_home():
     return os.path.expanduser("~/.nevekit")
+
+
+def are_two_floats_equal(actual, expected, tol=1e-08) -> bool:
+    """
+    Test that two floats are equal within a tolerance.
+    """
+    return np.isclose([actual], [expected], atol=tol)[0]
 
 
 logger = init_logger()

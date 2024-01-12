@@ -11,6 +11,10 @@ class ESI:
         )
         self.sso = sso
 
-    def get_character_standings(self):
-        # Implementation for authenticated ESI calls
-        pass
+    def get_character_standings(self) -> []:
+        """
+        Get the standings of the authenticated user.
+        """
+        return self.client.Character.get_characters_character_id_standings(
+            character_id=self.sso.get_character_id()
+        ).result()

@@ -29,14 +29,15 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
+        pip install .
     - name: Lint with flake8
       run: |
         # Run flake8 on all .py files in the src directory and subdirectories.
-        flake8 --max-line-length=120 --count --show-source --statistics --max-complexity=10 src
+        flake8 --max-line-length=120 --count --show-source --statistics --max-complexity=10 nevekit
     - name: Test with pytest
       run: |
         # Run the unit test file in each package with coverage
-        pytest src/**/test_*.py
+        pytest nevekit/**/test_*.py
   release:
     # skip this job if it is not a tagged commit like v*.
     # see https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#example-using-a-github-context
