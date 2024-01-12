@@ -9,6 +9,7 @@ from nevekit import are_two_floats_equal
 def esi():
     return ESI()
 
+
 @pytest.mark.skip(reason="Not implemented yet")
 def test_get_character_standings_success(esi):
     """
