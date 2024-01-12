@@ -3,9 +3,6 @@ import os
 import logging
 import numpy as np
 
-# Add the src directory to the path so that we can import modules from it.
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
 
 def init_logger():
     """
