@@ -15,4 +15,6 @@ class ESI:
         """
         Get the standings of the authenticated user.
         """
-        return [0.01]
+        return self.client.Character.get_characters_character_id_standings(
+            character_id=self.sso.get_character_id()
+        ).result()
