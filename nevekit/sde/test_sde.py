@@ -1,7 +1,7 @@
 # Test file for the sde module.
 from unittest.mock import patch
 import pytest
-from sde import SDE
+from nevekit.sde import SDE
 
 # Constants for testing
 SDE_DB_NAME = "sde.db"
