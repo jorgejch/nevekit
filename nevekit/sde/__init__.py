@@ -1,6 +1,6 @@
 import os
 from fuzzworks import Fuzzworks
-from src import get_nevekit_home
+from nevekit import get_nevekit_home
 
 SDE_DB_NAME = "sde.db"
 

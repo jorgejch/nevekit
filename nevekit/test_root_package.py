@@ -1,6 +1,6 @@
 # Tests the parent package shared utilities.
 
-from src import get_nevekit_home, logger
+from nevekit import get_nevekit_home, logger
 
 
 def test_get_nevekit_home():

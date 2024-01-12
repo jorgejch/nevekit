@@ -1,7 +1,7 @@
 import pytest
 import requests
 from unittest.mock import patch, MagicMock, mock_open
-from fuzzworks import Fuzzworks
+from nevekit.fuzzworks import Fuzzworks
 
 # Constants for testing
 TEST_ENDPOINT = "dump/lpOffers.txt"

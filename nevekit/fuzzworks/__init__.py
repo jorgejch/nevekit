@@ -1,6 +1,6 @@
 import requests
 
-from src import logger
+from nevekit import logger
 
 DB_TYPE_TO_FUZZWORKS_ENDPOINT = {
     "sqlite": "dump/sqlite-latest.sqlite.bz2",
