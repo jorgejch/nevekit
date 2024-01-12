@@ -33,11 +33,11 @@ def get_nevekit_home():
     return os.path.expanduser("~/.nevekit")
 
 
-def test_floats(actual, expected, tol=1e-08):
+def are_two_floats_equal(actual, expected, tol=1e-08) -> bool:
     """
     Test that two floats are equal within a tolerance.
     """
-    return np.isclose(actual, expected, atol=1e-08)
+    return np.isclose([actual], [expected], atol=tol)[0]
 
 
 logger = init_logger()
