@@ -1,11 +1,21 @@
 # Test file for the esi module.
-from nevekit import 
-from esi import ESI
+from unittest.mock import patch
+import pytest
+from nevekit.esi import ESI
+from nevekit import test_floats
 
 
-def test_get_character_standings_success():
+@pytest.fixture
+def esi():
+    return ESI()
+
+
+def test_get_character_standings_success(esi):
     """
     Test that the the get_character_standings method returns the correct value.
     """
-    esi = ESI()
-    assert np.esi.get_character_standings()[0]
+    with patch(
+        "nevekit.esi.ESI.get_character_standings"
+    ) as mock_get_character_standings:
+        mock_get_character_standings.return_value = [0.01]
+        assert test_floats(esi.get_character_standings()[0], 0.01)
