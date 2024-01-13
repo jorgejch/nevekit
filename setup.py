@@ -9,7 +9,19 @@ requirements = [
 
 setup(
     name="nevekit",
-    version="0.1.0",
+    version="0.1.0-alpha.1",
     packages=find_packages(),
     install_requires=requirements,
+    author="Jorge Haddad",
+    author_email="jorgejch@gmail.com",
+    description=""A Python library for EVE Online.",
+    long_description=open('README.md').read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/jorgejch/nevekit",
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+        "Operating System :: Tested on GitHub's ubuntu-latest.",
+    ],
+    python_requires='>=3.11',
 )
