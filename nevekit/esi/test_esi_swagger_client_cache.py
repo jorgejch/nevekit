@@ -1,5 +1,4 @@
 import pytest
-import dill as pickle
 from unittest.mock import patch, MagicMock, mock_open, ANY
 from nevekit import get_nevekit_home
 from nevekit.esi import __SwaggerClientCache
