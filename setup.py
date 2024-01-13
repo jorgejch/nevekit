@@ -14,7 +14,7 @@ setup(
     install_requires=requirements,
     author="Jorge Haddad",
     author_email="jorgejch@gmail.com",
-    description=""A Python library for EVE Online.",
+    description="A Python library for EVE Online.",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     url="https://github.com/jorgejch/nevekit",
