@@ -147,7 +147,7 @@ class ESI:
         swagger_client_cache=__swagger_client_cache__,
     ):
         if config is None:
-            config = {"ssl_verify": False}
+            config = {"ssl_verify": True}
 
         self.config = config
         self.sso = sso
