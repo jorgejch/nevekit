@@ -159,7 +159,7 @@ class ESI:
         Initialize the ESI object.
         """
         try:
-            self.client = SwaggerClient.from_url(
+            client = SwaggerClient.from_url(
                 f"{self.BASE_URL}/_latest/swagger.json?datasource={self.ESI_DATASOURCE}",
                 http_client=self.http_client,
                 config=self.config,
@@ -169,7 +169,7 @@ class ESI:
             raise SwaggerClientFailedToInitializeException() from e
 
         try:
-            self.swagger_client_cache.set_swagger_client(self.client)
+            self.swagger_client_cache.set_swagger_client(client)
         except NeveKitException as e:
             logger.warning(f"Error saving SwaggerClient object to cache: {e}")
 
