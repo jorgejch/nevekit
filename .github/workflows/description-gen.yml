@@ -20,7 +20,6 @@ jobs:
         id: generate-pr-description
         uses: Ant0wan/openai-pr@v1
         with:
-          model: 'gpt-4'
           api-key: ${{ secrets.OPENAI_API_KEY }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
