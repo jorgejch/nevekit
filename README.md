@@ -27,13 +27,11 @@ A great start is dropping a "hi!" in this new [Discussions](https://github.com/j
 * The kit offers a simple interface to access the CCP's image server.
 * The kit offers a simple interface to access the Eve Online's ESI.
 * The kit offers a simple interface to access the Eve Online's dedicated service Fuzzworks' most useful data.
-* The kit is able to handle contracts.
 * Uses the Bravado library to handle the ESI.
   * The ESI definition can be found at: <https://esi.evetech.net/_latest/swagger.json>.
-* ESI Market data is fetched synchronously or asynchronous batches.
+* ESI Market data is fetched synchronously or in asynchronous batches.
 * The kit encapsulates the SDE data and provides a simple interface to access it.
   * The SDE data is fetched from a SQLite database.
-  * No ORM is used.
   * The SDE data ready to restore can be downloaded from: <https://www.fuzzwork.co.uk/dump/>.
 
 ## Installation

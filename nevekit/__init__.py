@@ -3,7 +3,7 @@ import logging
 import numpy as np
 
 
-def init_logger():
+def _init_logger():
     """
     Initialize a logger object.
     """
@@ -30,6 +30,9 @@ def init_logger():
 
 
 def get_nevekit_home():
+    """
+    Get full path to ~/.nevekit.
+    """
     return os.path.expanduser("~/.nevekit")
 
 
@@ -40,4 +43,4 @@ def are_two_floats_equal(actual, expected, tol=1e-08) -> bool:
     return np.isclose([actual], [expected], atol=tol)[0]
 
 
-logger = init_logger()
+logger = _init_logger()
