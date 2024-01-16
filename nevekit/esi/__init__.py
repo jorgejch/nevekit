@@ -11,6 +11,8 @@ from nevekit.exceptions import (
 
 # Constants
 SWAGGER_CLIENT_FILE_NAME = "esi_fido_swagger_client.pkl"
+ESI_BASE_URL = "https://esi.evetech.net"
+ESI_DATASOURCE = "tranquility"
 
 
 class __SwaggerClientCache(object):
@@ -136,9 +138,6 @@ __swagger_client_cache__ = __SwaggerClientCache()
 
 
 class ESI:
-    BASE_URL = "https://esi.evetech.net"
-    ESI_DATASOURCE = "tranquility"
-
     def __init__(
         self,
         config=None,
@@ -160,7 +159,7 @@ class ESI:
         """
         try:
             client = SwaggerClient.from_url(
-                f"{self.BASE_URL}/_latest/swagger.json?datasource={self.ESI_DATASOURCE}",
+                f"{ESI_BASE_URL}/_latest/swagger.json?datasource={ESI_DATASOURCE}",
                 http_client=self.http_client,
                 config=self.config,
             )
