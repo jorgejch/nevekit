@@ -20,3 +20,10 @@ class SwaggerClientFailedToInitializeException(NeveKitException):
 
     def __init__(self):
         self.message = "Swagger client failed to initialize."
+
+
+class NeveKitSSOAuthenticationException(NeveKitException):
+    """Exception raised when the authentication fails."""
+
+    def __init__(self, message="Authentication failed."):
+        self.message = message

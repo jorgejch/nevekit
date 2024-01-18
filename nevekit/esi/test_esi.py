@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock, ANY
-from nevekit.esi import ESI
+from nevekit.esi import ESI, ESI_BASE_URL, ESI_DATASOURCE
 
 
 @pytest.fixture()
@@ -22,7 +22,7 @@ def test_init_success(esi):
             esi.init()
 
             mock_swagger_client.assert_called_with(
-                f"{esi.BASE_URL}/_latest/swagger.json?datasource={esi.ESI_DATASOURCE}",
+                f"{ESI_BASE_URL}/_latest/swagger.json?datasource={ESI_DATASOURCE}",
                 http_client=ANY,
                 config=ANY,
             )

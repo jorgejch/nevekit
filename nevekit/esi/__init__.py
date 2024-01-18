@@ -11,6 +11,8 @@ from nevekit.exceptions import (
 
 # Constants
 SWAGGER_CLIENT_FILE_NAME = "esi_fido_swagger_client.pkl"
+ESI_BASE_URL = "https://esi.evetech.net"
+ESI_DATASOURCE = "tranquility"
 
 
 class __SwaggerClientCache(object):
@@ -136,9 +138,6 @@ __swagger_client_cache__ = __SwaggerClientCache()
 
 
 class ESI:
-    BASE_URL = "https://esi.evetech.net"
-    ESI_DATASOURCE = "tranquility"
-
     def __init__(
         self,
         config=None,
@@ -147,7 +146,7 @@ class ESI:
         swagger_client_cache=__swagger_client_cache__,
     ):
         if config is None:
-            config = {"ssl_verify": False}
+            config = {"ssl_verify": True}
 
         self.config = config
         self.sso = sso
@@ -159,8 +158,8 @@ class ESI:
         Initialize the ESI object.
         """
         try:
-            self.client = SwaggerClient.from_url(
-                f"{self.BASE_URL}/_latest/swagger.json?datasource={self.ESI_DATASOURCE}",
+            client = SwaggerClient.from_url(
+                f"{ESI_BASE_URL}/_latest/swagger.json?datasource={ESI_DATASOURCE}",
                 http_client=self.http_client,
                 config=self.config,
             )
@@ -169,7 +168,7 @@ class ESI:
             raise SwaggerClientFailedToInitializeException() from e
 
         try:
-            self.swagger_client_cache.set_swagger_client(self.client)
+            self.swagger_client_cache.set_swagger_client(client)
         except NeveKitException as e:
             logger.warning(f"Error saving SwaggerClient object to cache: {e}")
 
