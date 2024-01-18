@@ -5,6 +5,7 @@ import webbrowser
 from datetime import datetime, timedelta
 from nevekit import logger
 from flask import Flask, redirect, request
+from flask_wtf.csrf import CSRFProtect
 from authlib.integrations.requests_client import OAuth2Session
 from authlib.oauth2.rfc7523 import ClientSecretJWT
 
@@ -16,6 +17,9 @@ CALLBACK_URI = "http://localhost:5000/oauth-callback"
 
 # Create the Flask app.
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
+
 app.secret_key = secrets.token_urlsafe(32)
 logger.info("Created Flask app.")
 
